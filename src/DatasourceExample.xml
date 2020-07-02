@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="mendix.datasourceexample.DatasourceExample" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+    xmlns="http://www.mendix.com/widget/1.0/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Datasource Example</name>
+    <description>Shows how to use data source properties and also control limit and offset</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <propertyGroup caption="Data">
+                <property key="data" type="datasource" isList="true" required="true">
+                    <caption>Data source</caption>
+                    <description>A data source that should take the count and offset attributes into account.</description>
+                </property>
+                <property key="limit" type="attribute" required="true">
+                    <caption>Data Limit</caption>
+                    <description></description>
+                    <attributeTypes>
+                        <attributeType name="Integer"/>
+                    </attributeTypes>
+                </property>
+                <property key="offset" type="attribute" required="true">
+                    <caption>Data Offset</caption>
+                    <description></description>
+                    <attributeTypes>
+                        <attributeType name="Integer"/>
+                    </attributeTypes>
+                </property>
+                <property key="refreshAction" type="action" required="true">
+                    <caption>Refresh Action</caption>
+                    <description>A nanoflow that refreshes the paging/context object (the one that holds the paging and offset values)</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Content">
+                <property key="content" type="widgets" required="false" dataSource="data">
+                    <caption>Content</caption>
+                    <description>Widgets using data source</description>
+                </property>
+            </propertyGroup>
+        </propertyGroup>
+    </properties>
+</widget>
